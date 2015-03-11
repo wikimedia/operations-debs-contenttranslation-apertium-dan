@@ -1,0 +1,11 @@
+apertium-dan (0.1.0-1) trusty; urgency=low
+
+  [ Tino Didriksen ]
+  * Initial release.
+
+  [ Kartik Mistry ]
+  * Rebuilt for Trusty.
+  * Fixed dependencies.
+  * Skip tests until we figure out failing tests with upstream.
+
+ -- Kartik Mistry <kartik@debian.org>  Thu, 07 May 2015 15:47:07 +0530
