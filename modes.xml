@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modes>
+
+  <mode name="dan-morph">
+    <pipeline>
+      <program name="lt-proc -w">
+        <file name="dan.automorf.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="dan-gener">
+    <pipeline>
+      <program name="lt-proc -g">
+        <file name="dan.autogen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="dan-disam">
+    <pipeline>
+      <program name="lt-proc -w">
+        <file name="dan.automorf.bin"/>
+      </program>
+      <program name="cg-proc -w">
+        <file name="dan.rlx.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="dan-disam-debug">
+    <pipeline>
+      <program name="lt-proc -w">
+        <file name="dan.automorf.bin"/>
+      </program>
+      <program name="cg-conv -a -l" />
+      <program name="vislcg3 --trace -g">
+        <file name="apertium-dan.dan.rlx"/>
+      </program>
+    </pipeline>
+  </mode>
+
+
+</modes>
