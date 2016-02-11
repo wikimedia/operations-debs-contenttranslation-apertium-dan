@@ -2,8 +2,8 @@
 ## Makefile for apertium-dan
 ###############################################################################
 
-RELEASE=0.1
-VERSION=0.1.0
+RELEASE=0.3
+VERSION=0.3.0
 LANG1=dan
 BASENAME=apertium-$(LANG1)
 

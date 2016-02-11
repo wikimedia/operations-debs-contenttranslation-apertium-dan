@@ -1,9 +1,7 @@
 prefix=@prefix@
 exec_prefix=${prefix}
-libdir=@libdir@
-dir=@libdir@/apertium/apertium-dan
 srcdir=@datarootdir@/apertium/apertium-dan
 
 Name: apertium-dan
-Description: Finite-state morphological transducer and constraint grammar for Danish 
+Description: Finite-state morphological transducer and constraint grammar for Danish
 Version: @VERSION@
