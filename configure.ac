@@ -1,12 +1,17 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+
 AC_PREREQ(2.52)
 
-AC_INIT([apertium-dan], [0.3.0], [francis.tyers@gmail.com])
-AM_INIT_AUTOMAKE([apertium-dan], [0.2.0], no-define)
+m4_define([required_apertium_version], [3.4.0])
+m4_define([required_lttoolbox_version], [3.3.2])
+
+AC_INIT([Apertium Danish], [0.5.0], [francis.tyers@gmail.com], [apertium-dan], [http://wiki.apertium.org/wiki/Apertium-dan])
+AM_INIT_AUTOMAKE
+
 AC_PROG_LN_S
 AC_PROG_AWK
-
-m4_define([required_apertium_version], [3.4.0])
-m4_define([required_lttoolbox_version], [3.3.1])
 
 PKG_CHECK_MODULES(APERTIUM,   apertium >= required_apertium_version)
 PKG_CHECK_MODULES(LTTOOLBOX, lttoolbox >= required_lttoolbox_version)
