@@ -2,8 +2,8 @@
 ## Makefile for apertium-dan
 ###############################################################################
 
-RELEASE=0.3
-VERSION=0.3.0
+RELEASE=0.5
+VERSION=0.5.0
 LANG1=dan
 BASENAME=apertium-$(LANG1)
 
@@ -28,10 +28,10 @@ $(LANG1).automorf.bin: $(BASENAME).$(LANG1).dix
 	lt-comp lr $< $@ $(BASENAME).$(LANG1).acx
 
 $(LANG1).autogen.att.gz: $(LANG1).autogen.bin
-	lt-print $< | gzip -9 -c > $@
+	lt-print $< | gzip -9 -c -n > $@
 
 $(LANG1).automorf.att.gz: $(LANG1).automorf.bin
-	lt-print $< | gzip -9 -c > $@
+	lt-print $< | gzip -9 -c -n > $@
 
 $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 	lt-comp lr $< $@
@@ -91,8 +91,8 @@ clean-local:
 ###############################################################################
 
 test: all
-	echo "TODO test sentence" | apertium -d . dan-morph | tee .test-mt
-	@echo "TODO test analysis results" > .test-ref
+	echo "kage" | apertium -d . dan-morph | tee .test-mt
+	@echo "^kage/kage<vblex><inf><actv>/kage<n><ut><sg><ind><nom>/kage<n><ut><sg><ind><nom>$$^./.<sent>$$" > .test-ref
 	@diff .test-ref .test-mt
 	@rm .test-ref .test-mt
 
