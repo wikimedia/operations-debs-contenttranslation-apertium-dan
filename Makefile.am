@@ -2,8 +2,6 @@
 ## Makefile for apertium-dan
 ###############################################################################
 
-RELEASE=0.5
-VERSION=0.5.0
 LANG1=dan
 BASENAME=apertium-$(LANG1)
 
@@ -25,6 +23,7 @@ $(LANG1).autogen.bin: $(BASENAME).$(LANG1).dix .deps/.d
 
 $(LANG1).automorf.bin: $(BASENAME).$(LANG1).dix
 	apertium-validate-dictionary $<
+	test ! -f ./test-scandivoc || ./test-scandivoc
 	lt-comp lr $< $@ $(BASENAME).$(LANG1).acx
 
 $(LANG1).autogen.att.gz: $(LANG1).autogen.bin
@@ -76,7 +75,7 @@ modes/$(LANG1)-morph.mode: modes.xml
 
 noinst_DATA=modes/$(LANG1)-morph.mode
 
-install-data-local:
+install-data-local: install-modes
 	test -d $(DESTDIR)$(apertium_dan_srcdir) || mkdir -p $(DESTDIR)$(apertium_dan_srcdir)
 	$(INSTALL_DATA) $(BASENAME).$(LANG1).dix $(DESTDIR)$(apertium_dan_srcdir)
 	$(INSTALL_DATA) $(BASENAME).$(LANG1).rlx $(DESTDIR)$(apertium_dan_srcdir)
@@ -92,7 +91,8 @@ clean-local:
 
 test: all
 	echo "kage" | apertium -d . dan-morph | tee .test-mt
-	@echo "^kage/kage<vblex><inf><actv>/kage<n><ut><sg><ind><nom>/kage<n><ut><sg><ind><nom>$$^./.<sent>$$" > .test-ref
+	@echo "^kage/kage<vblex><inf><actv>/kage<n><ut><sg><ind>/kage<n><ut><sg><ind>$$^./.<sent>$$" > .test-ref
 	@diff .test-ref .test-mt
 	@rm .test-ref .test-mt
 
+check: test
