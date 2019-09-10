@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modes>
 
-  <mode name="dan-morph">
+  <mode name="dan-morph" install="yes">
     <pipeline>
       <program name="lt-proc -w -e">
         <file name="dan.automorf.bin"/>
@@ -9,7 +9,7 @@
     </pipeline>
   </mode>
 
-  <mode name="dan-gener">
+  <mode name="dan-gener" install="yes">
     <pipeline>
       <program name="lt-proc -g">
         <file name="dan.autogen.bin"/>
@@ -17,7 +17,7 @@
     </pipeline>
   </mode>
 
-  <mode name="dan-disam">
+  <mode name="dan-disam" install="yes">
     <pipeline>
       <program name="lt-proc -w -e">
         <file name="dan.automorf.bin"/>
